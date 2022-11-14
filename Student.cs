@@ -2,7 +2,7 @@ namespace homework;
 public class Student : Person
 {
     public int  numCourses = 0 ;
-    private List<string>list;
+    private List<string8]>list;
     public string [] courses ={};
     public int  [] grades = {} ;
     public Student( string name, string address) : base(name, address)

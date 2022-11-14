@@ -1,26 +1,47 @@
 namespace homework;
 public class Teacher : Person
-{ 
-    public int  numCourses = 0 ;
-    public string [] courses = {} ;
-    private List<string> list;
-    public Teacher( string name, string address) : base(name, address)
+{
+    private int myCourses = 0;
+    private List<string> courses;
+    private string course;
+    public Teacher(string name, string address) : base( name, address)
     {
-        list= new List<string>();
+        courses = new List<string>();
     }
-    public void addCourse(string courses)
+    public bool AddCourse(string course)
     {
-        list.Add(courses);
-    }
-    public void removeCourse(string courses)
-    {
-        foreach (var item in list)
+        int used = 0;
+        foreach (var item in courses)
         {
-            if ( item == courses ){
-                list.Remove(item);
-                return;
+            if (item != course || courses.Count()==0) 
+            {
+                 used ++;
+                 courses.Add(course);
             }
         }
+        if (used == false)
+        {
+            return true;
+        }
+        return false;
+
+    }
+    public bool removeCourse(string course)
+    {
+        bool used = false;
+        foreach (var item in courses)
+        {
+            if ( item == course ){
+
+                courses.Remove(item);
+                used = true;
+            }
+        }
+        if ( used == false )
+        {
+            return used;
+        }
+        return true;
     }
     public override string ToString()
     {
